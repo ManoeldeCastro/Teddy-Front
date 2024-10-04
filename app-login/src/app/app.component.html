@@ -1,54 +1,24 @@
-<main
-    class="bg-secondary w-full h-screen flex items-center justify-center p-4"
->
-    <section class="w-full max-w-md bg-white p-8 rounded-lg shadow-lg">
-        <form class="flex-col flex items-center justify-center gap-6" (ngSubmit)="onSubmit()">
-            <h1 class="font-bold text-2xl mb-2">Acesso ao Sistema</h1>
+<main class="h-screen bg-zinc-900 flex justify-center items-center">
+    <section class=" bg-white p-6 rounded-lg shadow-lg flex flex-col justify-between gap-6">
+        <div>
+            <h3 class="text-2xl font-semibold leading-none tracking-tight">Login</h3>
+            <p class="text-lg text-muted-foreground">Insira suas credenciais para acessar</p>
+        </div>
 
-            <p class="text-gray-600 mb-4 text-center">Insira suas credenciais para continuar</p>
+        <form class="flex flex-col gap-6" (ngSubmit)="onSubmit()">
+            <input required type="text" [(ngModel)]="user" placeholder="Usuário" [ngModelOptions]="{ standalone: true }" class="input input-bordered input-primary w-full px-4 py-3 outline-none border border-gray-300 focus:border-primary rounded-md transition-all" />
 
-            <input
-                required
-                type="text"
-                [(ngModel)]="user"
-                placeholder="Nome de usuário"
-                [ngModelOptions]="{ standalone: true }"
-                class="login-form-input px-4 py-3 w-full outline-none border border-gray-300 focus:border-primary rounded-md transition-all"
-            />
+            <input required type="password" placeholder="Senha" [(ngModel)]="password" [ngModelOptions]="{ standalone: true }" class="input input-bordered input-primary w-full px-4 py-3 outline-none border border-gray-300 focus:border-primary rounded-md transition-all" />
 
-            <input
-                required
-                type="password"
-                placeholder="Senha"
-                [(ngModel)]="password"
-                [ngModelOptions]="{ standalone: true }"
-                class="login-form-input px-4 py-3 w-full outline-none border border-gray-300 focus:border-primary rounded-md transition-all"
-            />
+            <div class="flex items-center gap-2">
+                <input type="checkbox" class="checkbox checkbox-primary" [(ngModel)]="rememberUser" [ngModelOptions]="{ standalone: true }" />
 
-            <div class="flex items-center justify-between w-full">
-                <div class="flex items-center">
-                    <input
-                        type="checkbox"
-                        class="cursor-pointer"
-                        id="login-remember-user"
-                        [(ngModel)]="rememberUser"
-                        [ngModelOptions]="{ standalone: true }"
-                    />
-
-                    <label for="login-remember-user" class="ml-2 text-sm text-gray-700 cursor-pointer">
-                        Manter conectado
-                    </label>
-                </div>
-
-                <a href="#" class="text-sm text-primary hover:underline">
-                    Esqueceu sua senha?
-                </a>
+                <label class="cursor-pointer">
+                    <span class="label-text">Manter-me conectado</span>
+                </label>
             </div>
 
-            <button
-                type="submit"
-                class="w-full bg-primary py-3 text-white hover:bg-hover-primary transition-all font-semibold rounded-md"
-            >
+            <button type="submit" class="btn btn-primary w-full text-white py-3 font-semibold rounded-md">
                 Entrar
             </button>
 
