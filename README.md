@@ -79,4 +79,4 @@ Para contribuir com o projeto, siga estes passos:
 * **Testes unitários:** Cobertura de testes nos principais componentes (1 dia)
 * **Containerização:** Preparar o projeto para rodar em containers Docker (2 dias)
 * **Deploy na Vercel:** Configurar o ambiente de produção e realizar o deploy na Vercel (2 dias)
-```
+
