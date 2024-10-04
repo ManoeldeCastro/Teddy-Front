@@ -1,13 +1,36 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component } from "@angular/core";
+import { navigateToUrl } from "single-spa";
 
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+    selector: "app-root",
+    templateUrl: "./app.component.html",
+    styleUrl: "./app.component.css"
 })
 export class AppComponent {
-  title = 'app-login';
+    user = "";
+    password = "";
+    rememberUser = false;
+    error = "";
+
+    resetFields() {
+        this.user = "";
+        this.password = "";
+        this.rememberUser = false;
+        this.error = "";
+    }
+
+    onSubmit() {
+        if (this.user.length > 0 && this.password.length > 0) {
+            if (this.rememberUser) {
+                document.cookie = `@teddy/user-name=${this.user}`;
+            } else {
+                sessionStorage.setItem("@teddy/user-name", this.user);
+            }
+
+            this.resetFields();
+            navigateToUrl("/dashboard");
+        } else {
+            this.error = "Preencha todos os campos.";
+        }
+    }
 }
