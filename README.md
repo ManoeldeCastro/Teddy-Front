@@ -4,6 +4,7 @@
 ### Descrição:
 Plataforma desenvolvida com React, Angular e Single-Spa para gestão de parceiros e empresas externas.
 
+```
 ### Rodar o projeto:
 ```bash
 # Clone o repositório
